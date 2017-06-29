@@ -51,10 +51,12 @@ function bind(el, binding) {
     }
   };
 
+  document.documentElement.addEventListener('touchstart', el[HANDLER], false);
   document.documentElement.addEventListener('click', el[HANDLER], false);
 }
 
 function unbind(el) {
+  document.documentElement.removeEventListener('touchstart', el[HANDLER], false);
   document.documentElement.removeEventListener('click', el[HANDLER], false);
   delete el[HANDLER];
 }
